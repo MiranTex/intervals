@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .container{
+            height: 100vh;
+            display:flex; 
+            justify-content: center; 
+            align-items: center;
+
+        }
+
+        p{ 
+            font-size: 200px;
+        }
+    </style>
+</head>
+<body style="background:black;">
+    <div class="container">
+        <p id="intervalContainer" style="color: #fff;">
+            I
+        </p>
+    </div>
+
+    <script>
+        var intervals = ["I","II","III","IV","V","VI","VII","IX","XI", "XIII"];
+        var intervalContainer = document.getElementById("intervalContainer");
+
+        let first = 0;
+
+        function random(min,max) {
+            let num =  Math.floor((Math.random())*(max-min+1))+min;
+
+            if(num == first){
+                random(min,max)
+            }
+
+            return num;
+        }
+        setInterval(() => {
+            first = random(0,9);
+            intervalContainer.innerHTML = intervals[first];
+        }, 5000);
+    </script>
+</body>
+</html>
